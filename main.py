@@ -78,7 +78,7 @@ y_result = DFT(discrete_y_points, N)
 m = 0
 amp_result = [0] * N
 while m < len(y_result):
-    amp_result[m] = abs(y_result[m])
+    amp_result[m] = math.sqrt(y_result[m].real ** 2 + y_result[m].imag ** 2)
     m += 1
 
 plt.grid(True)
@@ -92,7 +92,7 @@ plt.show()
 m = 0
 phase_result = [0] * N
 while m < len(y_result):
-    phase_result[m] = y_result[m].imag
+    phase_result[m] = math.atan(y_result[m].imag / y_result[m].real)
     m += 1
 
 plt.grid(True)
@@ -147,7 +147,7 @@ y_result = FFT(discrete_y_points, N)
 m = 0
 amp_result = [0] * N
 while m < len(y_result):
-    amp_result[m] = abs(y_result[m])
+    amp_result[m] = math.sqrt(y_result[m].real ** 2 + y_result[m].imag ** 2)
     m += 1
 
 plt.grid(True)
@@ -161,7 +161,7 @@ plt.show()
 m = 0
 phase_result = [0] * N
 while m < len(y_result):
-    phase_result[m] = y_result[m].imag
+    phase_result[m] =  math.atan(y_result[m].imag / y_result[m].real)
     m += 1
 
 plt.grid(True)
